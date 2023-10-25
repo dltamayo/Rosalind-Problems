@@ -4,17 +4,15 @@ inFile = sys.argv[1]
 outFile = sys.argv[2]
 
 def sequence_count(sequence):
-    '''
+    """Count the number of occurrences of A, C, G, T in the input sequence.
+    
     input: string, a DNA sequence
-    output: a string containing four integers (separated by spaces) 
-    counting the respective number of times that 'A', 'C', 'G', and 'T' occur in sequence
-    '''
-    output = ('%d %d %d %d' 
-              % (sequence.count('A'), sequence.count('C'), 
-                 sequence.count('G'), sequence.count('T')))
-    return output
+    """
+    A,C,G,T = sequence.count('A'), sequence.count('C'), sequence.count('G'), sequence.count('T')
+    return f'{A} {C} {G} {T}'
 
 if __name__ == '__main__':
     with open(inFile, 'r') as input_file, open(outFile, 'w') as output_file:
         sequence = input_file.read()
-        output_file.writelines(sequence_count(sequence))
+        output = sequence_count(sequence)
+        output_file.writelines(output)
