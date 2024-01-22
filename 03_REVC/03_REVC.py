@@ -4,7 +4,7 @@ inFile = sys.argv[1]
 outFile = sys.argv[2]
 
 def reverse_complement(sequence):
-    """Translate T characters in input sequence into U.
+    """Returns reverse complement of input sequence.
     """
     output = sequence.translate(str.maketrans('ACGT', 'TGCA'))
     output = output[::-1]
